@@ -359,8 +359,8 @@ int search(char const *pattern, char const *inputFile) {
     // But in my case, kmp works just fine and I really don't have time
     // to try BM...
 
-    // This section uses a adapted KMP search algorithm implemented in
-    // kmp.c, which also saves the last possible prefix to a string.
+    // This section uses an adapted KMP search algorithm implemented in
+    // kmp.c, which also saves the last possible prefix into a char array.
 
     int count = 0;
     FILE* file = fopen(inputFile, "rb");
