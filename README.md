@@ -9,6 +9,8 @@ Author: Tianpeng Chen z5176343
 
 ## Usage
 
+`$ make` then
+
 encode: ./huffman -e [input-src-path] [output-src-path]
 
 decode: ./huffman -d [input-src-path] [output-src-path]
