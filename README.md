@@ -1,13 +1,13 @@
 # README.md
 
-# Intro
+## Intro
 A static huffman encoder/decoder
 
 UNSW COMP9319 Web Data Compression and Search 18s2 Assignment 1
 
 Author: Tianpeng Chen z5176343
 
-# Usage
+## Usage
 
 encode: ./huffman -e [input-src-path] [output-src-path]
 
@@ -16,9 +16,9 @@ decode: ./huffman -d [input-src-path] [output-src-path]
 search: ./huffman -s [query-string] [file-path]
 
 
-# Structure
+## Structure
 
-## 1. Program
+### 1. Program
 
 huffman 	
 	|--huffman.c 		//main
@@ -26,10 +26,10 @@ huffman
 	|--minheap.c
 	|--bitops.h 		//bit operation utility
 	|--bitops.c
-	|--kmp.h 			//kmp search
+	|--kmp.h 		//kmp search
 	|--kmp.c
 
-## 2. Encoded Header
+### 2. Encoded Header
 
 Header stores the whole frequency table for all ASCII characters as a 32-bit int, which is 256 * 4 = 1024 bytes in total.
 
@@ -37,25 +37,25 @@ After written header, encoder will write compressed data into output file from t
 
 So the encoded file is at least 1024 bytes.
 
-# Performance
+## Performance
 
 This program can encode/decode any text or binary file (less than 100MB) within 60 second, using < 10MB memory (depending on the OS, on a 64 bit ubuntu machine it's around 6MB, while on a 32 bit debian machine it's around 2.3MB). 
 
-# Reflection
+## Reflection
 
-## 1. 
+### 1. 
 Be extremly careful with heap memory operations (malloc, memset, memcpy, etc...)
 
 Fortunately you'll get a segmentation fault, which is not so hard to debug.
 Sometimes your char array may be overwritten and it's much harder to find the problem...
 
-## 2. 
+### 2. 
 Remember to initialze the heap space after a malloc operation. And always remember to free these spaces after used.
 
-## 3. 
+### 3. 
 When dealing with binary files, be careful with strlen(), which interrupts the binary 0 to the terminating char '\0'.
 
-## 4. 
+### 4. 
 In terms of design, the most tricky part is how to encode/decode/search without loading the whole file into memory (I did those byte-wise). 
 
 As for implementation, the most tricky part is all the memory operations. C gives developer huge freedom to access the memory, but also the responsibility to access them properly.
